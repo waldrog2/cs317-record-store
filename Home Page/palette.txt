@@ -1,0 +1,26 @@
+/* Coolors Exported Palette - https://coolors.co/0f5257-709775-0b3142-c6b9cd */
+
+/* CSV */
+0f5257,709775,0b3142,c6b9cd
+
+/* With # */
+#0f5257, #709775, #0b3142, #c6b9cd
+
+/* Array */
+["0f5257","709775","0b3142","c6b9cd"]
+
+/* Object */
+{"Midnight Green Eagle Green":"0f5257","Russian Green":"709775","Prussian Blue":"0b3142","Languid Lavender":"c6b9cd"}
+
+/* Extended Array */
+[{"name":"Midnight Green Eagle Green","hex":"0f5257","rgb":[15,82,87],"cmyk":[83,6,0,66],"hsb":[184,83,34],"hsl":[184,71,20],"lab":[31,-18,-9]},{"name":"Russian Green","hex":"709775","rgb":[112,151,117],"cmyk":[26,0,23,41],"hsb":[128,26,59],"hsl":[128,16,52],"lab":[59,-21,14]},{"name":"Prussian Blue","hex":"0b3142","rgb":[11,49,66],"cmyk":[83,26,0,74],"hsb":[199,83,26],"hsl":[199,71,15],"lab":[19,-6,-14]},{"name":"Languid Lavender","hex":"c6b9cd","rgb":[198,185,205],"cmyk":[3,10,0,20],"hsb":[279,10,80],"hsl":[279,17,76],"lab":[77,8,-8]}]
+
+/* XML */
+<palette>
+  <color name="Midnight Green Eagle Green" hex="0f5257" r="15" g="82" b="87" />
+  <color name="Russian Green" hex="709775" r="112" g="151" b="117" />
+  <color name="Prussian Blue" hex="0b3142" r="11" g="49" b="66" />
+  <color name="Languid Lavender" hex="c6b9cd" r="198" g="185" b="205" />
+</palette>
+
+https://coolors.co/0f5257-709775-0b3142-c6b9cd
