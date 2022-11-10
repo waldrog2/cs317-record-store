@@ -2,8 +2,11 @@ body {
     margin: 0;
 }
 
+p {
+    font-family: 'Raleway', sans-serif;
+}
 .header {
-    height: 75px;
+    height: 70px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -22,9 +25,43 @@ body {
     display: flex;
     align-items: center;
 }
+
 .logo {
-    display: inline-block;
     height: 60px;
     margin-left: 5px;
-    border-radius: 30px;
+    border-radius: 5px;
+    flex: 1;
+}
+
+.company-name {
+    margin-left: 20px;
+    color: white;
+}
+
+.middle-section {
+    flex: 1;
+    margin-left: 70px;
+    margin-right: 35px;
+    max-width: 500px;
+    display: flex;
+    align-items: center;
+}
+
+.search-bar {
+    flex: 1;
+    height: 35px;
+    padding-left: 12px;
+    font-size: 16px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(194, 194, 194);
+    border-radius: 2px;
+    box-shadow: inset 1px 2px 3px rgba(0, 0, 0, 0.05);
+    width: 0;
+    margin-right: 50px;
+}
+
+.search-bar::placeholder {
+    font-family: 'Raleway', sans-serif;
+    font-size: 16px;
 }
