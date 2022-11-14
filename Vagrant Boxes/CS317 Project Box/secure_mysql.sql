@@ -1,0 +1,10 @@
+-- FLUSH PRIVILEGES;
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'root';
+DELETE FROM mysql.global_priv WHERE User='';
+DELETE FROM mysql.global_priv WHERE User='root' AND Host NOT IN ('localhost', '127.0.0.1', '::1');
+DROP DATABASE IF EXISTS test;
+DELETE FROM mysql.db WHERE Db='test' OR Db='test\\_%';
+CREATE USER 'records'@'%' IDENTIFIED BY 'records';
+CREATE DATABASE records;
+GRANT ALL PRIVILEGES ON records.* TO 'records'@'%' IDENTIFIED BY 'records';
+FLUSH PRIVILEGES;

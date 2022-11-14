@@ -1,0 +1,5 @@
+CREATE TABLE Sessions (
+	cart_id INT NOT NULL AUTO_INCREMENT,
+	cookie VARCHAR(50) NOT NULL,
+	PRIMARY KEY (cart_id)
+);
