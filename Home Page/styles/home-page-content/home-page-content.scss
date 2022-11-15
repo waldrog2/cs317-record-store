@@ -14,11 +14,7 @@ $smoky-black: #0f0e0eff;
 $welcome-image-width: clamp(300px, 100%, 100%);
 
 body {
-  margin: 0;
-  padding-top: 60px;
-  padding-left: 24px;
-  padding-right: 24px;
-  height: 2000px;
+  padding: 75px 24px;
 }
 
 .home-page-content {
@@ -57,10 +53,83 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   place-items: center;
+  -moz-column-gap: 20px;
   column-gap: 20px;
   row-gap: 40px;
 }
 
+.welcome-image-one {
+  width: clamp(300px, 100%, 100%);
+  height: auto;
+  -webkit-animation: fadeinOne 1.5s;
+  animation: fadeinOne 1.5s;
+  border-radius: 5px;
+}
+
+.welcome-image-two {
+  width: clamp(300px, 100%, 100%);
+  height: auto;
+  -webkit-animation: fadeinTwo 2.5s;
+  animation: fadeinTwo 2.5s;
+  border-radius: 5px;
+}
+
+.welcome-image-three {
+  width: clamp(300px, 100%, 100%);
+  height: auto;
+  -webkit-animation: fadeinThree 3.5s;
+  animation: fadeinThree 3.5s;
+  border-radius: 5px;
+}
+
+@-webkit-keyframes fadeinOne {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeinOne {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fadeinTwo {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeinTwo {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fadeinThree {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeinThree {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 .topPick {
   font-size: 80px;
   margin-left: 45px;
@@ -74,11 +143,12 @@ body {
 }
 
 .top-pick-album {
-  background-color: $lavender-blue;
+  background-color: $alice-blue;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
 }
+
 .top-pick-album img {
   margin-left: 45px;
   margin-right: 15px;
@@ -102,4 +172,4 @@ body {
 
 .artist {
   font-size: 20px;
-}
+} /*# sourceMappingURL=home-page-content.css.map */ /*# sourceMappingURL=home-page-content.css.map */

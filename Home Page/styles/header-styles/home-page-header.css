@@ -2,6 +2,7 @@
 /* SCSS HEX */
 body {
   margin: 0;
+  height: 100vh;
 }
 
 p {
@@ -14,6 +15,7 @@ p {
   flex-direction: row;
   justify-content: space-between;
   position: fixed;
+  padding: 10px 5px;
   top: 0;
   left: 0;
   right: 0;
@@ -102,4 +104,4 @@ p {
 
 .shopping-bag:hover {
   background-color: rgb(255, 243, 221);
-} /*# sourceMappingURL=home-page-header.css.map */
+}/*# sourceMappingURL=home-page-header.css.map */
