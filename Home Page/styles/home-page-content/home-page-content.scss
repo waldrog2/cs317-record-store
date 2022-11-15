@@ -1,6 +1,13 @@
-$blanched-almond: #ffeecfff;
+/* SCSS HEX */
+$white: #ffffffff;
+$alice-blue: #e5ecf4ff;
+$lavender-blue: #c3bef7ff;
+$medium-slate-blue: #8a4fffff;
+$french-blue: #1c77c3ff;
+
+$blanched-almond: rgb(255, 243, 221);
 $mellow-apricot: #f5c181ff;
-$persian-green: #00a79dff;
+$persian-green: #00A79Dff;
 $pine-green: #007065ff;
 $smoky-black: #0f0e0eff;
 
@@ -24,7 +31,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-bottom: 200px;
+    margin-bottom: 125px;
 }
 
 .welcome {
@@ -34,8 +41,7 @@ body {
     margin-top: 15px;
     padding-left: 15px;
     padding-right: 15px;
-    border-radius: 5px;
-    color: $pine-green
+    color: $medium-slate-blue
 }
 
 .come-in {
@@ -54,51 +60,6 @@ body {
     column-gap: 20px;
     row-gap: 40px;
 }
-.welcome-image-one {
-   width: $welcome-image-width;
-   height: auto;
-   animation: fadeinOne 1.5s;
-   border-radius: 5px;
-}
-.welcome-image-two {
-    width: $welcome-image-width;
-    height: auto;
-    animation: fadeinTwo 2.5s;
-    border-radius: 5px;
- }
- .welcome-image-three {
-    width: $welcome-image-width;
-    height: auto;
-    animation: fadeinThree 3.5s;
-    border-radius: 5px;
- }
-
- @keyframes fadeinOne {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    } 
-}
-
-@keyframes fadeinTwo {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    } 
-}
-
-@keyframes fadeinThree {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    } 
-}
 
 .topPick {
     font-size: 80px;
@@ -113,7 +74,7 @@ body {
 }
 
 .top-pick-album {
-    background-color: $mellow-apricot;
+    background-color: $lavender-blue;
     border-radius: 10px;
     display: flex;
     flex-direction: column;

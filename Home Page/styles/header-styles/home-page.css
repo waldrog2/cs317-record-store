@@ -1,6 +1,7 @@
+/* SCSS HEX */
 body {
   margin: 0;
-  background-color: #ffeecf;
+  background-color: rgb(255, 243, 221);
 }
 
 p {

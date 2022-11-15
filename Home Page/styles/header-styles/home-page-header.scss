@@ -1,8 +1,17 @@
-$blanched-almond: #ffeecfff;
+/* SCSS HEX */
+/* SCSS HEX */
+$white: #ffffffff;
+$alice-blue: #e5ecf4ff;
+$lavender-blue: #c3bef7ff;
+$medium-slate-blue: #8a4fffff;
+$french-blue: #1c77c3ff;
+
+$blanched-almond: rgb(255, 243, 221);
 $mellow-apricot: #f5c181ff;
-$jungle-green: #00a687ff;
+$persian-green: #00A79Dff;
 $pine-green: #007065ff;
 $smoky-black: #0f0e0eff;
+
 
 body {
     margin: 0;
@@ -22,10 +31,10 @@ p {
     left: 0;
     right: 0;
     z-index: 100;
-    background-color: $jungle-green;
+    background-color: $lavender-blue;
     border-bottom-width: 1px;
     border-bottom-style: solid;
-    border-bottom-color: $pine-green;
+    border-bottom-color: $medium-slate-blue;
 }
 
 .left-section {
@@ -62,7 +71,8 @@ p {
     font-size: 16px;
     border-width: 1px;
     border-style: solid;
-    border-color: $pine-green;
+    border-color: $medium-slate-blue;
+    background:rgb(255, 243, 221);
     border-radius: 5px;
     box-shadow: inset 1px 2px 3px rgba(0, 0, 0, 0.05);
     width: 0;
@@ -82,10 +92,10 @@ p {
 
 .shopping-bag {
 	width: 60px;
-	background-color: $jungle-green;
-	border-style: solid;
-	border-color: $pine-green;
+	background-color: $lavender-blue;
+	border-style: unset;
 	border-radius: 10px;
+    
 
 	cursor: pointer;
 

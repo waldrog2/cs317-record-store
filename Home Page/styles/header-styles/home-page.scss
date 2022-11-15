@@ -1,8 +1,17 @@
-$blanched-almond: #ffeecfff;
+/* SCSS HEX */
+$white: #ffffffff;
+$alice-blue: #e5ecf4ff;
+$lavender-blue: #c3bef7ff;
+$medium-slate-blue: #8a4fffff;
+$french-blue: #1c77c3ff;
+
+$blanched-almond: rgb(255, 243, 221);
 $mellow-apricot: #f5c181ff;
-$persian-green: #00a79dff;
+$persian-green: #00A79Dff;
 $pine-green: #007065ff;
 $smoky-black: #0f0e0eff;
+
+
 
 body {
     margin: 0;

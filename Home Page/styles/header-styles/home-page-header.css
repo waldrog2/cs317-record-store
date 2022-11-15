@@ -1,3 +1,5 @@
+/* SCSS HEX */
+/* SCSS HEX */
 body {
   margin: 0;
 }
@@ -16,10 +18,10 @@ p {
   left: 0;
   right: 0;
   z-index: 100;
-  background-color: #00a687;
+  background-color: #c3bef7;
   border-bottom-width: 1px;
   border-bottom-style: solid;
-  border-bottom-color: #007065;
+  border-bottom-color: #8a4fff;
 }
 
 .left-section {
@@ -56,7 +58,8 @@ p {
   font-size: 16px;
   border-width: 1px;
   border-style: solid;
-  border-color: #007065;
+  border-color: #8a4fff;
+  background: rgb(255, 243, 221);
   border-radius: 5px;
   box-shadow: inset 1px 2px 3px rgba(0, 0, 0, 0.05);
   width: 0;
@@ -86,9 +89,8 @@ p {
 
 .shopping-bag {
   width: 60px;
-  background-color: #00a687;
-  border-style: solid;
-  border-color: #007065;
+  background-color: #c3bef7;
+  border-style: unset;
   border-radius: 10px;
   cursor: pointer;
   transition: 0.5s;
@@ -99,5 +101,5 @@ p {
 }
 
 .shopping-bag:hover {
-  background-color: #ffeecf;
+  background-color: rgb(255, 243, 221);
 }/*# sourceMappingURL=home-page-header.css.map */
