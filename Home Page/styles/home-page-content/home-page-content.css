@@ -44,7 +44,7 @@ body {
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   place-items: center;
   -moz-column-gap: 20px;
-       column-gap: 20px;
+  column-gap: 20px;
   row-gap: 40px;
 }
 
@@ -52,7 +52,7 @@ body {
   width: clamp(300px, 100%, 100%);
   height: auto;
   -webkit-animation: fadeinOne 1.5s;
-          animation: fadeinOne 1.5s;
+  animation: fadeinOne 1.5s;
   border-radius: 5px;
 }
 
@@ -60,7 +60,7 @@ body {
   width: clamp(300px, 100%, 100%);
   height: auto;
   -webkit-animation: fadeinTwo 2.5s;
-          animation: fadeinTwo 2.5s;
+  animation: fadeinTwo 2.5s;
   border-radius: 5px;
 }
 
@@ -68,7 +68,7 @@ body {
   width: clamp(300px, 100%, 100%);
   height: auto;
   -webkit-animation: fadeinThree 3.5s;
-          animation: fadeinThree 3.5s;
+  animation: fadeinThree 3.5s;
   border-radius: 5px;
 }
 
@@ -163,4 +163,4 @@ body {
 
 .artist {
   font-size: 20px;
-}/*# sourceMappingURL=home-page-content.css.map */
+} /*# sourceMappingURL=home-page-content.css.map */
