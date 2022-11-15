@@ -6,24 +6,25 @@ use App\Lib\DB;
 
 class AlbumArt
 {
-    private $db_connection;
-    private $art_id;
-    private $art_path;
-
     public function __construct($id)
     {
         $this->db_connection = new DB();
-        $this->art_id = $id;
+        $this->artist_id = $id;
         if (is_null($id))
         {
-            $this->art_id = $this->find_last_id() + 1;
+            $this->artist_id = $this->find_last_id() + 1;
         }
-        $this->load_art();
+        $this->load_artist();
     }
 
-    public function getArtPath()
+    public function getArtistName()
     {
-        return $this->art_path;
+        return $this->artist_name;
+    }
+
+    public function getGenreName()
+    {
+        return $this->genre_name;
     }
 
     private function find_last_id()
@@ -33,7 +34,7 @@ class AlbumArt
         return $stmt->fetch()["artist_id"];
     }
 
-    private function load_art()
+    private function load_artist()
     {
         $sql = 'SELECT artist_name,genre_name FROM Artist INNER JOIN Genre ON Artist.genre_id = Genre.genre_id WHERE artist_id = ?';
         $stmt = $this->db_connection->run($sql,[$this->artist_id]);
