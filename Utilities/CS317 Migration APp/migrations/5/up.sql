@@ -1,0 +1,5 @@
+CREATE TABLE AlbumArt (
+	art_id INT NOT NULL AUTO_INCREMENT,
+	`path` VARCHAR(512) NOT NULL,
+	PRIMARY KEY (art_id)
+);

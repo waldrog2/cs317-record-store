@@ -1,0 +1,5 @@
+.vagrant
+album_art
+*.jpg
+vendor
+.cache

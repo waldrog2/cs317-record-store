@@ -1,0 +1,39 @@
+{
+  "genres": [
+    {
+      "name": "Rock",
+      "subgenres": [
+        {
+          "name": "Alternative Rock",
+          "artists": [
+            "Jack White",
+            "Arctic Monkeys",
+            "Radiohead",
+            "Smashing Pumpkins",
+            "Weezer",
+            "The Black Keys",
+            "Arcade Fire",
+            "Queens of the Stone Age",
+            "Beck",
+            "Lana Del Ray"
+          ]
+        },
+        {
+          "name": "Grunge",
+          "artists": [
+            "Nirvana",
+            "Pearl Jam",
+            "Alice in Chains",
+            "Soundgarden",
+            "Hole",
+            "Foo Fighters",
+            "Dinosaur Jr.",
+            "Stone Temple Pilots",
+            "Temple of the Dog",
+            "Mudhoney"
+          ]
+        }
+      ]
+    }
+  ]
+}

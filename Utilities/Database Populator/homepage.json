@@ -1,0 +1,13 @@
+{
+  "featured_album": {
+    "name": "album_name",
+    "artist": "artist",
+    "price": "$8"
+  },
+  "new_reel": [
+    {
+      "album_image": "image_url",
+      "album_link": "album_link"
+    }
+  ]
+}

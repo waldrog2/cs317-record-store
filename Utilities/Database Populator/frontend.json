@@ -1,0 +1,13 @@
+{
+  "pagination": {
+    "current_page": 1,
+    "max_pages": 50
+  },
+  "albums" : [
+    {
+      "name": "Black Gives Way To Blue",
+      "artist": "Alice In Chains",
+      "album_link": "/albums/id"
+    }
+  ]
+}

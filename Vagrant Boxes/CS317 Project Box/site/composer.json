@@ -1,0 +1,22 @@
+{
+    "name": "gnations56/cs317-record-store",
+    "description": "CS317 Record Store Project",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "App\\": "App/"
+        }
+    },
+    "authors": [
+        {
+            "name": "George Waldron",
+            "email": "waldrog2@my.erau.edu"
+        }
+    ],
+    "require": {
+        "monolog/monolog": "^3.2",
+        "twig/twig": "^3.4",
+        "ext-json": "*",
+        "ext-pdo": "*"
+    }
+}
