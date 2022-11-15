@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "cs317 migration app"
+version = "0.1.0"
+description = ""
+authors = ["George Waldron <waldrog2@my.erau.edu>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+mariadb = "1.1.4"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
