@@ -1,5 +1,6 @@
 #!/bin/bash
-sudo dnf install -y mariadb-server
+sudo dnf module enable -y mariadb:10.9
+sudo dnf module install -y mariadb/server
 # sudo mysqld_safe --skip-grant-tables --skip-networking &
 cp /vagrant/enable_utf8.preset /etc/my.cnf.d/
 sudo systemctl enable --now mariadb

@@ -1,0 +1,25 @@
+[[package]]
+name = "mariadb"
+version = "1.1.4"
+description = "Python MariaDB extension"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[metadata]
+lock-version = "1.1"
+python-versions = "^3.8"
+content-hash = "ee6ccbd1d1d6149466c92e75d89d7e415ea530e0a14adf758505960783b6bff6"
+
+[metadata.files]
+mariadb = [
+    {file = "mariadb-1.1.4-cp310-cp310-win32.whl", hash = "sha256:eccdfd2579fc311578d5b938ec0d18f7b5f77ec5adcdb60bc001d462d78965e5"},
+    {file = "mariadb-1.1.4-cp310-cp310-win_amd64.whl", hash = "sha256:b48d81a90b89532051e5aa12848bcd3973107a8eb9462ba857369d319a1a0217"},
+    {file = "mariadb-1.1.4-cp37-cp37m-win32.whl", hash = "sha256:9a5d62eae145014a93c1d109233b071049e99b244eb58ab942891f47cb3012e1"},
+    {file = "mariadb-1.1.4-cp37-cp37m-win_amd64.whl", hash = "sha256:97831f1cea8c611b7bbc101ca1a4679b376fd6a2cd365c3826beba39f0dc260f"},
+    {file = "mariadb-1.1.4-cp38-cp38-win32.whl", hash = "sha256:c974750b5ac92da2af092897509808fc221dc2ebcc8688b5be4c5446b76489fe"},
+    {file = "mariadb-1.1.4-cp38-cp38-win_amd64.whl", hash = "sha256:059a2e0b1f319284a618651fb3dc246e0657f4b9560accf7f9a4e9ec1802c7ec"},
+    {file = "mariadb-1.1.4-cp39-cp39-win32.whl", hash = "sha256:086afe3f37c282c0d4f5d96e688ce1e3cc601dfdf045568b8f82d6d7b5f12910"},
+    {file = "mariadb-1.1.4-cp39-cp39-win_amd64.whl", hash = "sha256:ce6093dedebe4d9e0ca4f802422f084ed8a6848080210474ab4195c69f323e48"},
+    {file = "mariadb-1.1.4.zip", hash = "sha256:73a0acbd2ace381ec1bcfc61ced7a79a519e66c02c24e12ae6d27baa03717876"},
+]

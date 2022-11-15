@@ -74,7 +74,7 @@ def download_art_for_album(artist, album_name, url, debug=False):
         os.makedirs(f"./album_art/")
     response = requests.get(url)
     illegal_characters = [' ', '\"', '/', '\\', '*', '|', '<', '>',
-                          ':']  # these characters cannot appear in paths on Windows
+                          ':','?']  # these characters cannot appear in paths on Windows
     if response.status_code == 200:
         for illegal_char in illegal_characters:
             fixed_artist_name = fixed_artist_name.replace(illegal_char, "_")
@@ -146,7 +146,7 @@ def download(input_file, output_file):
         data_dump["genres"].append({"name":genre["name"],"subgenres":[]})
 
         for subgenre in genre["subgenres"]:
-            get_albums_for_genre(subgenre, 3,debug=True)
+            get_albums_for_genre(subgenre, 3,debug=False)
     write_output_file(output_file)
 
 
