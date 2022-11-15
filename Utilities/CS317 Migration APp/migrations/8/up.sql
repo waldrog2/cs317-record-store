@@ -1,6 +1,6 @@
 CREATE TABLE Album (
 	album_id INT NOT NULL,
-	album_name VARCHAR(256) CHARACTER SET utf8mb4 NOT NULL,
+	album_name VARCHAR(512) CHARACTER SET utf8mb4 NOT NULL,
 	artist_id INT NOT NULL,
 	genre_id INT NOT NULL,
 	art_id INT NOT NULL,
