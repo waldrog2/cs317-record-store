@@ -60,6 +60,20 @@ optional = false
 python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,!=3.5.*,!=3.6.*,>=2.7"
 
 [[package]]
+name = "deezer-python"
+version = "5.7.0"
+description = "A friendly wrapper library for the Deezer API"
+category = "main"
+optional = false
+python-versions = ">=3.7,<4.0"
+
+[package.dependencies]
+requests = ">=2.18"
+
+[package.extras]
+docs = ["myst-parser (>=0.16)", "sphinx (>=4.0)", "sphinx-autobuild (>=2021.0)", "sphinx-rtd-theme (>=1.0)"]
+
+[[package]]
 name = "deprecated"
 version = "1.2.13"
 description = "Python @deprecated decorator to deprecate old python classes, functions or methods."
@@ -259,7 +273,7 @@ python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,>=2.7"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "4b5de92d2e583b222542c0bc2d9974e2c33c0ffbc71f089069e787866ef01f9b"
+content-hash = "8404e5d404a58cca68d8d0443cbfd34b1206ec5b805f8bda72a75a4a3a10af78"
 
 [metadata.files]
 async-timeout = [
@@ -285,6 +299,10 @@ click = [
 colorama = [
     {file = "colorama-0.4.6-py2.py3-none-any.whl", hash = "sha256:4f1d9991f5acc0ca119f9d443620b77f9d6b33703e51011c16baf57afb285fc6"},
     {file = "colorama-0.4.6.tar.gz", hash = "sha256:08695f5cb7ed6e0531a20572697297273c47b8cae5a63ffc6d6ed5c201be6e44"},
+]
+deezer-python = [
+    {file = "deezer_python-5.7.0-py3-none-any.whl", hash = "sha256:417f989aa6ab50e3bab71d4d96a615e5cd38f0280690041bc35b0814f5dea4d1"},
+    {file = "deezer_python-5.7.0.tar.gz", hash = "sha256:e5d1a950c3461e6ebcaa5df67e8adc7e0cee3d108381066dd2f3e6db050f7793"},
 ]
 deprecated = [
     {file = "Deprecated-1.2.13-py2.py3-none-any.whl", hash = "sha256:64756e3e14c8c5eea9795d93c524551432a0be75629f8f29e67ab8caf076c76d"},

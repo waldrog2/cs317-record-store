@@ -6,7 +6,7 @@ authors = ["George Waldron <waldrog2@my.erau.edu>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = "^3.8"
 mariadb = "1.1.4"
 
 

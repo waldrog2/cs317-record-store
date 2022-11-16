@@ -19,7 +19,6 @@ use App\Lib\Response;
 
     Router::get('/api/album/([0-9]*)', function (Request $req, Response $res)
     {
-        echo "JSON!";
        $res->toJSON([
            'album_id' => ['id'=>$req->params[0]],
            'status' => 'ok'

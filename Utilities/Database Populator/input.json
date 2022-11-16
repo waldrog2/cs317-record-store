@@ -1,36 +1,655 @@
 {
   "genres": [
     {
+      "name": "Country",
+      "subgenres": [
+        {
+          "name": "Country Pop",
+          "artists": [
+            "Rascal Flatts",
+            "Taylor Swift",
+            "Carrie Underwood",
+            "Shania Twain",
+            "Garth Brooks"
+          ]
+        },
+        {
+          "name": "Bluegrass",
+          "artists": [
+            "Bill Monroe & The Blue Grass Boys",
+            "The Del McCoury Band",
+            "Alison Krauss & Union Station ",
+            "Ricky Skaggs & Kentucky Thunder",
+            "Nitty Gritty Dirt Band"
+          ]
+        },
+        {
+          "name": "Christian",
+          "artists": [
+            "Randy Travis",
+            "Josh Turner",
+            "Hillary Scott"
+          ]
+        },
+        {
+          "name": "Honky Tonk",
+          "artists": [
+            "Hank Williams",
+            "Ernest Tubb",
+            "Jerry Lee Lewis"
+          ]
+        },
+        {
+          "name": "Western Music",
+          "artists": [
+            "Marty Robbins",
+            "Johnny Cash"
+          ]
+        },
+        {
+          "name": "Nashville Sound",
+          "artists": [
+            "Patsy Cline",
+            "Skeeter Davis",
+            "Glen Campbell",
+            "Tammy Wynette",
+            "Brenda Lee",
+            "Jim Reeves"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "EDM",
+      "subgenres": [
+        {
+          "name": "EDM",
+          "artists": [
+            "deadmau5",
+            "Daft Punk",
+            "Tiësto",
+            "Avicii",
+            "David Guetta",
+            "Swedish House Mafia",
+            "Armin Van Burren",
+            "Kraftwerk"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Funk",
+      "subgenres": [
+        {
+          "name": "Funk",
+          "artists": [
+            "James Brown",
+            "Sly Stone",
+            "Joe Tex",
+            "George Clinton",
+            "Isley Brothers",
+            "Graham Central Station",
+            "The Commodores",
+            "Kool & The Gang",
+            "Rick James",
+            "Prince",
+            "The Brothers Johnson",
+            "Parliment"
+          ]
+        },
+        {
+          "name": "Disco",
+          "artists": [
+            "Earth Wind & Fire",
+            "Donna Summer",
+            "Bee Gees",
+            "Gloria Gaynor",
+            "KC & the Sunshine Band",
+            "Diana Ross"
+          ]
+        },
+        {
+          "name": "Acid Jazz",
+          "artists": [
+            "The Brand New Heavies",
+            "Portishead",
+            "Madlib"
+          ]
+        },
+        {
+          "name": "Jazz Funk",
+          "artists": [
+            "Kamasi Washington",
+            "Herbie Hancock",
+            "Donald Byrd",
+            "George Duke",
+            "Gil Scott-Heron"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Hip-Hop",
+      "subgenres": [
+        {
+          "name": "Old School",
+          "artists": [
+            "Eric B. & Rakim",
+            "Run-D.M.C.",
+            "Beastie Boys",
+            "Public Enemy",
+            "Slick Rick"
+          ]
+        },
+        {
+          "name": "Boom-bap",
+          "artists": [
+            "Raekwon",
+            "Mobb Deep",
+            "Ghostface Killah",
+            "Mos Def",
+            "Freddie Gibbs"
+          ]
+        },
+        {
+          "name": "Jazz rap",
+          "artists": [
+            "De La Soul",
+            "Quasimoto",
+            "Gang Starr",
+            "The Roots",
+            "A Tribe Called Quest"
+          ]
+        },
+        {
+          "name": "Mumble rap",
+          "artists": [
+            "Lil Uzi Vert",
+            "Young Thug",
+            "Future",
+            "21 Savage",
+            "Kodak Black"
+          ]
+        },
+        {
+          "name": "Southern",
+          "artists": [
+            "Lil' Wayne",
+            "Outkast"
+          ]
+        },
+        {
+          "name": "West Coast",
+          "artists": [
+            "Easy E",
+            "Warren G.",
+            "Kendrick Lamar",
+            "N.W.A",
+            "Dr. Dre",
+            "Snoop Dogg",
+            "Ice Cube",
+            "Tupac Shakur"
+          ]
+        },
+        {
+          "name": "East Coast",
+          "artists": [
+            "50 Cent",
+            "Wu-Tang Clan",
+            "Nas",
+            "Jay Z",
+            "The Notorious B.I.G",
+            "Diddy",
+            "A$AP Rocky",
+            "The Fugees",
+            "Lauryn Hill",
+            "MF Doom",
+            "J. Cole"
+          ]
+        },
+        {
+          "name": "Trap",
+          "artists": [
+            "Travis Scott",
+            "Young Thug",
+            "Playboy Carti",
+            "Future",
+            "Migos",
+            "21 Savage"
+          ]
+        },
+        {
+          "name": "Rap",
+          "artists": [
+            "Offset",
+            "Drake",
+            "Eminem",
+            "Kayne West"
+          ]
+        },
+        {
+          "name": "Rap rock",
+          "artists": [
+            "Linkin Park",
+            "Rage Against the Machine",
+            "Limp Bizkit",
+            "Cypress Hill"
+          ]
+        },
+        {
+          "name": "Emo rap",
+          "artists": [
+            "Lil Peep",
+            "Juice WRLD",
+            "XXXTENTACION",
+            "100 Gecs",
+            "Trippie Redd"
+          ]
+        },
+        {
+          "name": "G-funk",
+          "artists": [
+            "DJ Quik"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Jazz",
+      "subgenres": [
+        {
+          "name": "Jazz",
+          "artists": [
+            "Bill Evans",
+            "Dave Brubeck"
+          ]
+        },
+        {
+          "name": "Swing",
+          "artists": [
+            "Frank Sinatra",
+            "Nat King Cole",
+            "Louis Armstrong",
+            "Dean Martin",
+            "Tony Bennett",
+            "Bing Crosby",
+            "Ella Fitzgerald"
+          ]
+        },
+        {
+          "name": "Bebop",
+          "artists": [
+            "Miles Davis",
+            "Charlie Parker",
+            "John Coltrane",
+            "Thelonious Monk",
+            "Charles Mingus"
+          ]
+        },
+        {
+          "name": "Big Band",
+          "artists": [
+            "Duke Ellington",
+            "Count Bassie",
+            "Buddy Rich",
+            "Gordon Goodwin's Big Phat Band",
+            "Glenn Miller"
+          ]
+        },
+        {
+          "name": "Blues",
+          "artists": [
+            "Robert Johnson",
+            "Muddy Waters",
+            "B.B. King",
+            "Etta James",
+            "Stevie Ray Vaughan",
+            "Ray Charles"
+          ]
+        },
+        {
+          "name": "Cool Jazz",
+          "artists": [
+            "Chet Baker",
+            "Gerry Mulligan",
+            "Stan Gets"
+          ]
+        },
+        {
+          "name": "Modal Jazz",
+          "artists": [
+            "Gil Evans"
+          ]
+        },
+        {
+          "name": "Avant-Gard",
+          "artists": [
+            "Sun Ra",
+            "Rahsaan Roland Kirk"
+          ]
+        },
+        {
+          "name": "Jazz Fuzion",
+          "artists": [
+            "Chick Corea",
+            "Casiopea",
+            "Masayoshi Takanaka",
+            "Geroge Benson",
+            "Snarky Puppy"
+          ]
+        },
+        {
+          "name": "Latin Jazz",
+          "artists": [
+            "Arturo Sandoval",
+            "Tito Puente",
+            "Joao Gilberto"
+          ]
+        },
+        {
+          "name": "Bossa Nova",
+          "artists": [
+            "Antonio Carlos Jobim",
+            "Luiz Bonfa"
+          ]
+        },
+        {
+          "name": "Smooth Jazz",
+          "artists": [
+            "Bob James",
+            "Fourplay",
+            "Kenny G",
+            "Grover Washington, Jr.",
+            "Wes Montgomery"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Pop",
+      "subgenres": [
+        {
+          "name": "Art pop",
+          "artists": [
+            "Kate Bush",
+            "Bjork",
+            "Lana Del Ray",
+            "Lorde"
+          ]
+        },
+        {
+          "name": "Dance-pop",
+          "artists": [
+            "Abba",
+            "Lady Gaga",
+            "Madonna",
+            "Beyonce",
+            "Janet Jackson",
+            "Michael Jackson"
+          ]
+        },
+        {
+          "name": "Electropop",
+          "artists": [
+            "Robyn",
+            "Charli XCX",
+            "Grimes",
+            "Troye Sivan",
+            "Billie Eilish"
+          ]
+        },
+        {
+          "name": "Sunshine pop",
+          "artists": [
+            "Carpenters",
+            "The Mamas & the Papas"
+          ]
+        },
+        {
+          "name": "Teen pop",
+          "artists": [
+            "Justin Bieber",
+            "Shawn Mendes",
+            "Ariana Grande",
+            "Ed Sheeran",
+            "Harry Styles",
+            "Selena Gomez",
+            "Bruno Mars",
+            "Adele",
+            "Taylor Swift",
+            "Olivia Rodrigo",
+            "Dua Lipa"
+          ]
+        },
+        {
+          "name": "Pop Rap",
+          "artists": [
+            "Doja Cat",
+            "Black Eyed Peas",
+            "Nicki Minaj",
+            "KIDS SEE GHOSTS"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Reggae",
+      "subgenres": [
+        {
+          "name": "Reggae",
+          "artists": [
+            "Bob Marley",
+            "Sly & Robbie",
+            "Black Uhuru",
+            "Peter Tosh",
+            "Yellowman",
+            "BROCKHAMPTON"
+          ]
+        }
+      ]
+    },
+    {
       "name": "Rock",
       "subgenres": [
         {
-          "name": "Alternative Rock",
+          "name": "Alternate Rock",
           "artists": [
-            "Jack White",
-            "Arctic Monkeys",
+            "Sonic Youth",
             "Radiohead",
-            "Smashing Pumpkins",
-            "Weezer",
-            "The Black Keys",
-            "Arcade Fire",
-            "Queens of the Stone Age",
-            "Beck",
-            "Lana Del Ray"
+            "My Chemical Romance",
+            "Talking Heads",
+            "The Cure",
+            "Tool"
+          ]
+        },
+        {
+          "name": "Hard Rock",
+          "artists": [
+            "Led Zeppelin",
+            "AC/DC",
+            "Guns N' Roses",
+            "Aerosmith",
+            "Iron Maiden"
+          ]
+        },
+        {
+          "name": "Indie",
+          "artists": [
+            "Artic Monkeys",
+            "The Strokes",
+            "Joy Division",
+            "Pixies",
+            "The Smiths",
+            "R.E.M.",
+            "The White Stripes"
           ]
         },
         {
           "name": "Grunge",
           "artists": [
             "Nirvana",
-            "Pearl Jam",
             "Alice in Chains",
+            "Pearl Jam",
             "Soundgarden",
-            "Hole",
-            "Foo Fighters",
-            "Dinosaur Jr.",
             "Stone Temple Pilots",
-            "Temple of the Dog",
-            "Mudhoney"
+            "Screaming Trees"
+          ]
+        },
+        {
+          "name": "Heavy Metal",
+          "artists": [
+            "Metallica",
+            "Dream Theatre",
+            "Black Sabbath",
+            "Slayer",
+            "Megadeth"
+          ]
+        },
+        {
+          "name": "Yacht Rock",
+          "artists": [
+            "Toto",
+            "Boz Sacaggs",
+            "Kenny Loggins",
+            "Steely Dan",
+            "Christopher Cross"
+          ]
+        },
+        {
+          "name": "Punk Rock",
+          "artists": [
+            "Green Day",
+            "The Clash",
+            "The Ramones",
+            "The Sex Pistols",
+            "Black Flag",
+            "The Misfits",
+            "Suicidal Tendencies"
+          ]
+        },
+        {
+          "name": "Glam Rock",
+          "artists": [
+            "David Bowie",
+            "Queen",
+            "Sweet",
+            "Alice Cooper",
+            "Electric Light Orchestra"
+          ]
+        },
+        {
+          "name": "Soft rock",
+          "artists": [
+            "The Band",
+            "Fleetwood Mac",
+            "The Eagles",
+            "Billy Joel",
+            "Elton John",
+            "Eurythmics"
+          ]
+        },
+        {
+          "name": "Progressive Rock",
+          "artists": [
+            "The Alan Parsons Project",
+            "Emerson, Lake & Palmer",
+            "Genesis",
+            "Jethro Tull",
+            "The Moody Blues",
+            "Pink Floyd"
+          ]
+        },
+        {
+          "name": "Stoner Rock",
+          "artists": [
+            "Queens Of The Stone Age",
+            "Saint Vitus",
+            "Cathedral",
+            "Melvins",
+            "Electric Wizard"
+          ]
+        },
+        {
+          "name": "Industrial Rock",
+          "artists": [
+            "Marilyn Manson",
+            "Ministry",
+            "Nine Inch Nails"
+          ]
+        },
+        {
+          "name": "Ska",
+          "artists": [
+            "Sublime",
+            "The Specials"
+          ]
+        },
+        {
+          "name": "Surf",
+          "artists": [
+            "The Beach Boys",
+            "Dick Dale",
+            "The Ventures"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "R&B",
+      "subgenres": [
+        {
+          "name": "Alternate",
+          "artists": [
+            "Frank Ocean",
+            "Tyler, The Creator",
+            "SZA",
+            "The Weeknd"
+          ]
+        },
+        {
+          "name": "Neo Soul",
+          "artists": [
+            "Erykah Badu",
+            "Common",
+            "D'Angelo"
+          ]
+        },
+        {
+          "name": "Contemporary",
+          "artists": [
+            "Janelle Monae",
+            "Tevin Campbell",
+            "Luther Vandross",
+            "Aaliyah",
+            "Mariah Carey",
+            "TLC"
+          ]
+        },
+        {
+          "name": "Doo Wop",
+          "artists": [
+            "The Cadillacs",
+            "The Temptations ",
+            "The Flamingos"
+          ]
+        },
+        {
+          "name": "Motown",
+          "artists": [
+            "The Supremes",
+            "Stevie Wonder",
+            "Jackson 5",
+            "Marvin Gaye"
+          ]
+        },
+        {
+          "name": "Soul",
+          "artists": [
+            "Aretha Franklin",
+            "Sam Cooke",
+            "Johnny Mathis",
+            "Whitney Houston",
+            "Al Green"
           ]
         }
       ]

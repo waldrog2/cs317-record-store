@@ -5,10 +5,10 @@ with codecs.open("output.json", "r","utf-8-sig") as fp:
     data_dump = json.load(fp)
 
 genre_sql = "INSERT INTO Genre (genre_name,subgenre_name) VALUES (\"{}\",\"{}\");\n"
-artist_sql = "INSERT INTO Artist (artist_name,genre_id,description) VALUES (\"{}\",{},\"\");\n"
+artist_sql = "INSERT INTO Artist (artist_name,description) VALUES (\"{}\",\"\");\n"
 album_art_sql = "INSERT INTO AlbumArt(path) VALUES (\"{}\");\n"
 album_song_sql = "INSERT INTO AlbumSong (album_id,song_id,format_id) VALUES({},{},{});\n"
-album_sql = "INSERT INTO Album(album_id,album_name,artist_id,art_id,release_date) VALUES ({},\"{}\",{},{},\"{}\");\n"
+album_sql = "INSERT INTO Album(album_id,album_name,artist_id,genre_id,art_id,release_date) VALUES ({},\"{}\",{},{},{},\"{}\");\n"
 song_sql = "INSERT INTO Song (song_name,artist_id,duration) VALUES (\"{}\",{},\"{}\");\n"
 format_sql = "INSERT INTO Format (format_name) VALUES (\"{}\");\n"
 
@@ -29,7 +29,7 @@ for genre in data_dump["genres"]:
         for artist in subgenre["artists"]:
             print(f"Artist: {artist['name']}")
             print(f"Artist ID: {artist_id}")
-            migration += artist_sql.format(artist["name"], genre_id)
+            migration += artist_sql.format(artist["name"])
             for album in artist["albums"]:
                 album['name'] = album['name'].replace('\"', '').replace(";",",")
                 print(f"Album: {album['name']}")
@@ -56,7 +56,7 @@ for genre in data_dump["genres"]:
                         song_id += 1
                     migration += album_song_sql.format(album_id, target_song_id,1)
                     migration += album_song_sql.format(album_id, target_song_id,2)
-                migration += album_sql.format(album_id,album['name'],artist_id,art_id,album['release_date'])
+                migration += album_sql.format(album_id,album['name'],artist_id,genre_id,art_id,album['release_date'])
                 art_id += 1
                 album_id += 1
             artist_id += 1
