@@ -12,8 +12,11 @@ use App\Lib\Router;
 use App\Lib\Request;
 use App\Lib\Response;
 
-    Router::get('/', function() {
-        echo(file_get_contents(__DIR__."/homepage.html"));
+    Router::get('/api', function() {
+        // echo "Hello";
+       $res = new Response();
+       $res->redirect("http://localhost:8044/",true);
+        exit;
     });
 
 
@@ -26,7 +29,7 @@ use App\Lib\Response;
     });
 
     Router::get('/test/genre',function() {
-//        echo "I Did a thing!";
+       echo "I Did a thing!";
         TestController::getLastGenreID();
     });
 
@@ -40,5 +43,6 @@ use App\Lib\Response;
     });
 
     Router::post('/api/grid/([0-9]*', function() {Gridpage::getHomepageData(new Request());});
+
 //    App::run();
 ?>

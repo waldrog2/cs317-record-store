@@ -9,7 +9,7 @@ class Genre {
 
     private $genre_id;
     private $genre_name;
-    private $subgenre_name;
+
 
     private $db_connection;
 
@@ -28,18 +28,13 @@ class Genre {
         return $this->genre_name;
     }
 
-    public function getSubgenreName()
-    {
-        return $this->subgenre_name;
-    }
 
     private function load_genre($id) {
-        $sql = 'SELECT genre_name,subgenre_name FROM Genre WHERE genre_id = ?';
+        $sql = 'SELECT genre_name FROM Genre WHERE genre_id = ?';
         $stmt = $this->db_connection->run($sql,[$id]);
         $results = $stmt->fetch();
         if ($results !== false) {
             $this->genre_name = $results['genre_name'];
-            $this->subgenre_name = $results['subgenre_name'];
         }
 
     }

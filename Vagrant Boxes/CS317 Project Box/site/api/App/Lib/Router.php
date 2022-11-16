@@ -9,6 +9,7 @@
             if (strcasecmp($_SERVER['REQUEST_METHOD'],'GET') !== 0) {
                 return; //not a get request
             }
+            
             self::on($route,$callback);
         }
 
@@ -21,10 +22,14 @@
 
         public static function on($regex,$callback) {
             $params = $_SERVER['REQUEST_URI'];
+            if (substr($params,-1) == '/')
+            {
+                $params = substr($params,0,-1);
+            }
             $params = (stripos($params,"/") !== 0) ? "/" . $params : $params;
             $regex = str_replace('/','\/',$regex);
             $has_match = preg_match('/^' . ($regex) . '$/',$params,$matches, PREG_OFFSET_CAPTURE);
-
+            
             if ($has_match) {
                 array_shift($matches);
                 $params = array_map(function ($param) {
