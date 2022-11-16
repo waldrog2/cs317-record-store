@@ -1,0 +1,101 @@
+/* SCSS HEX */
+/* SCSS HEX */
+body {
+  margin: 0;
+  height: 100vh;
+  font-family: "Raleway", sans-serif;
+}
+
+.header {
+  height: 70px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: fixed;
+  padding: 5px 10px;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background-color: #c3bef7;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: #8a4fff;
+  box-shadow: 0px 2.98256px 7.4564px rgba(0, 0, 0, 0.1);
+}
+
+.left-section {
+  display: flex;
+  align-items: center;
+}
+
+.left-section > img {
+  height: 60px;
+  margin-right: 20px;
+}
+
+.left-section > p {
+  margin-left: 15px;
+  color: white;
+  font-size: 20px;
+}
+
+.middle-section {
+  flex: 1;
+  margin-left: 70px;
+  margin-right: 35px;
+  max-width: 500px;
+  display: flex;
+  align-items: center;
+}
+
+.search-bar {
+  flex: 1;
+  height: 36px;
+  min-width: 105px;
+  padding-left: 12px;
+  font-size: 16px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #8a4fff;
+  background: rgb(255, 243, 221);
+  border-radius: 2px;
+  box-shadow: inset 1px 2px 3px rgba(0, 0, 0, 0.05);
+  width: 0;
+}
+
+.search-bar::-moz-placeholder {
+  font-size: 15px;
+}
+
+.search-bar:-ms-input-placeholder {
+  font-size: 15px;
+}
+
+.search-bar::placeholder {
+  font-size: 15px;
+}
+
+.right-section {
+  display: flex;
+  align-items: center;
+  margin-right: 30px;
+  flex-shrink: 0;
+}
+
+.shopping-bag {
+  width: 60px;
+  background-color: #c3bef7;
+  border-style: unset;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.shopping-bag-icon {
+  width: 25px;
+}
+
+.shopping-bag:hover {
+  background-color: rgb(255, 243, 221);
+}/*# sourceMappingURL=home-page-header.css.map */
