@@ -35,6 +35,10 @@ class DB {
         }
     }
 
+    public function __destruct()
+    {
+        $this->pdo = null;
+    }
     public function run($sql,$args = null)
     {
 //        echo $sql;
@@ -58,5 +62,6 @@ class DB {
         $stmt->execute();
         return $stmt;
     }
+
 }
 

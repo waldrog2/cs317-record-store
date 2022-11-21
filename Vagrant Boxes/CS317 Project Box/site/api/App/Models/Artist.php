@@ -28,6 +28,10 @@ class Artist
         return $this->artist_name;
     }
 
+    public static function search($query,$criteria)
+    {
+        $sql = "SELECT * FROM Artist MATCH(copy) AGAINST (?)";
+    }
     public function getGenreName()
     {
         return $this->genre_name;
@@ -42,7 +46,7 @@ class Artist
 
     private function load_artist()
     {
-        $sql = 'SELECT artist_name,genre_name FROM Artist INNER JOIN Genre ON Artist.genre_id = Genre.genre_id WHERE artist_id = ?';
+        $sql = 'SELECT artist_name FROM Artist  WHERE artist_id = ?';
         $stmt = $this->db_connection->run($sql,[$this->artist_id]);
         $results = $stmt->fetch();
         $this->artist_name = $results['artist_name'];

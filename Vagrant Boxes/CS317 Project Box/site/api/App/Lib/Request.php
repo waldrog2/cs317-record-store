@@ -14,7 +14,21 @@ class Request {
         $this->contentType = !empty($_SERVER['CONTENT_TYPE']) ? trim($_SERVER['CONTENT_TYPE']) : '';
     }
 
-    public function getQuery()
+    public function parseQueryString($query_string): array
+    {
+        $seperate_params_regex = "#&#";
+        $extract_key_value_regex = "#=#";
+        $params_list = preg_split($seperate_params_regex,$query_string);
+        $param_value_data = [];
+        foreach ($params_list as $param)
+            {
+                $param_parts = preg_split($extract_key_value_regex,$param);
+                $param_value_data[$param_parts[0]] = urldecode($param_parts[1]);
+            }
+        return $param_value_data;
+    }
+
+    public function getQuery() : array|string
     {
         if ($this->reqMethod !== 'GET')
         {
@@ -43,7 +57,11 @@ class Request {
         return $body;
     }
 
-    public function getJSON()
+    public function getEndOfPath()
+    {
+
+    }
+    public function getJSON() : array
     {
         if ($this->reqMethod !== 'POST')
         {
