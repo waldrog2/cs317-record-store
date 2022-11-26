@@ -46,7 +46,7 @@ if sys.argv[1].lower() == "migrate":
                 for command in query_commands:
                     line_number += 1
                     command = command.replace('\n','')
-                    if command != "":
+                    if command != "" and ''.join(command[0:2]) != '--':
                         command += ";"
                         # if line_number > 3:
                         #     break
