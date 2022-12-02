@@ -2,10 +2,9 @@ import "./album-grid-styles/album-style.css";
 import React from "react";
 import flowerBoy from "./images/flowerBoy.jpg";
 import tylerPicture from "./images/tyler.bmp";
-import { albumData } from "./data.js";
 
-export default function Card(props) {
-  console.log(albumData[1]);
+export default function Album(props) {
+  console.log(props);
   return (
     <div className="album-grid">
       <div className="div-album">
@@ -19,8 +18,8 @@ export default function Card(props) {
           </div>
 
           <div className="album-info">
-            <p className="album-title">Flower Boy</p>
-            <p className="album-artist">Tyler the Character</p>
+            <p className="album-title">({props.new_releases.title})</p>
+            <p className="album-artist">(props.items.new_rea)</p>
             <p className="album-date">July 21, 2017</p>
           </div>
         </div>
