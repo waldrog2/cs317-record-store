@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Lib\DB;
+use App\Lib\Levenshtein;
 
 class Album
 {
@@ -56,9 +57,29 @@ class Album
         return $this->release_date;
     }
 
-    public function search($album_name)
+    public static function search($album_name)
     {
-
+        $db_connection = new DB();
+        $distances = [];
+        $sql = "SELECT
+                    album_id AS id,
+                    album_name AS search_result,
+                    MATCH(album_name) AGAINST(:name) AS relevance
+                    FROM Album
+                    WHERE MATCH(album_name) AGAINST(:name2)
+                    ORDER BY relevance DESC LIMIT 20";
+        $stmt = $db_connection->run($sql,[':name' => $album_name,":name2"=>$album_name]);
+        $top_20_results = $stmt->fetchAll();
+//        var_dump($top_20_results);
+        for ($i = 0; $i < sizeof($top_20_results); $i++) {
+            $str_dist = Levenshtein::levenshtein_utf8(strtolower($top_20_results[$i]["search_result"]),strtolower($album_name));
+            if ($str_dist != 255) {
+                $distances[$top_20_results[$i]["id"]] = $str_dist;
+            }
+        }
+        asort($distances);
+//        var_dump($distances);
+        return array_keys($distances);
     }
 
     public static function getAlbumCount()

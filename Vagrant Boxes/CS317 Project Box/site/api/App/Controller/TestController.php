@@ -24,23 +24,28 @@ class TestController {
         echo $artist->getGenreName();
     }
 
-    public static function testSongSearch(Request $request)
+    public static function testSongSearch($subpath,$query_fragments)
     {
-        $params = $request->getQuery();
+
+        $request = new Request();
+        $params = $request->parseQueryString($query_fragments);
 //        echo "Getting queries";
         if (!array_key_exists('song_name',$params))
         {
+            var_dump($params);
+//            echo "Bad Request";
             $res = new Response();
-            $res->status(400);
-            $res->send();
+            $res->send(400,"Bad Request");
         }
         $song_name = $params['song_name'];
         $song_list = Song::search($song_name);
+//        var_dump($song_list);
         $results = [
             'items' => []
         ];
-        foreach($song_list as $result) {
-            $song = new Song($result['song_id']);
+        foreach($song_list as $song_id) {
+//            var_dump($song_id);
+            $song = new Song($song_id);
             $artist = new Artist($song->getArtistID());
 
             $song_data = [
@@ -52,8 +57,7 @@ class TestController {
         }
 
         $response = new Response();
-        $response->status(200);
-        $response->toJSON($results);
+        $response->sendJSON($results);
     }
 
 }
