@@ -22,8 +22,7 @@ use App\Lib\Response;
     NewRouter::add('/search/?.*',"\App\Controller\SearchController::search",'GET');
     NewRouter::add('/gridpage?.*',"\App\Controller\GridController::getGridPage",'GET');
     NewRouter::add('/homepage',"\App\Controller\HomeController::getHomepage",'GET');
-    NewRouter::add('/testsearch?.*',"\App\Controller\TestController::testSongSearch",'GET');
-    NewRouter::add('/recommendation?.*',"\App\Controller\RecommendationController::recommend",'GET');
+
 NewRouter::process_route('/api');
 
 //    echo "Got HERE";
