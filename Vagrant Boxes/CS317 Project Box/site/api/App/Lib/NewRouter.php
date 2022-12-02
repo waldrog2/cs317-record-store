@@ -104,7 +104,8 @@ class NewRouter
                 }
                 else //the path wasn't found
                 {
-                 if (self::$path_not_found_handler) //if a hadler is registered, call it
+//                    echo $url_path;
+                 if (self::$path_not_found_handler) //if a handler is registered, call it
                  {
                     call_user_func_array(self::$path_not_found_handler, [$url_path]);
                  }
