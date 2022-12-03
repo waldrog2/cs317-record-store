@@ -1,11 +1,12 @@
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
 import json
-from time import sleep
+from time import sleep,time
 import os
 import requests
 import click
 import codecs
+
 
 auth_manager = SpotifyClientCredentials(client_id="3330d930a2944181a3b7ce0e8616aa8d",
                                         client_secret="784256d0dbd24727bf3ef66e06b2c255")
@@ -15,6 +16,7 @@ data_dump = {"genres": []}
 genre_list = {}
 genres_root = data_dump["genres"]
 
+api_requests = 0
 
 def ms_to_hms(ms):
     seconds = int((ms / 1000) % 60)
@@ -35,6 +37,9 @@ def write_output_file(filename):
 
 
 def get_album_info(album_id):
+    global api_requests
+    if api_requests % 1000 == 0:
+        sleep(60)
     album_info = sp.album(album_id)
     if "US" not in album_info["available_markets"]:
         return {}
@@ -58,9 +63,16 @@ def get_album_track_info(album_data,debug=False):
 
 
 def get_album_list(artist_name):
+    global api_requests
+    if api_requests % 1000 == 0:
+        sleep(60)
     artist = sp.search(q=artist_name, type="artist", limit=1)
+    api_requests += 1
     artist_id = artist["artists"]["items"][0]["id"]
+    if api_requests % 1000 == 0:
+        sleep(60)
     album_data = sp.artist_albums(artist_id=artist_id, album_type="album", limit=50)
+    api_requests += 1
     return album_data
 
 
@@ -126,8 +138,8 @@ def get_albums_for_genre(genre, delay=5,debug=False):
                     {"name": album_info['name'].replace(';',','), "art_path": "", "release_date":album_info['release_date'],"tracks": []})
                 if debug:
                     print(f"Album Name: {albums_base[-1]['name']}")
-                get_album_track_info(album_info)
-                download_art_for_album(artist_name, albums_base[-1]['name'], album_info['images'][0]['url'],debug=False)
+                get_album_track_info(album_info,debug=True)
+                download_art_for_album(artist_name, albums_base[-1]['name'], album_info['images'][0]['url'],debug=True)
                 if debug:
                     print("----------------------------")
                     print(f"Waiting {delay} Seconds...")
@@ -146,7 +158,10 @@ def download(input_file, output_file):
         data_dump["genres"].append({"name":genre["name"],"subgenres":[]})
 
         for subgenre in genre["subgenres"]:
-            get_albums_for_genre(subgenre, 3,debug=False)
+            start_time = time()
+            get_albums_for_genre(subgenre, 1,debug=True)
+            end_time = time()
+            print(f"Iteration took {end_time-start_time} seconds")
     write_output_file(output_file)
 
 

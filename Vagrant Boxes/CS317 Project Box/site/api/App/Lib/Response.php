@@ -5,20 +5,24 @@
     class Response
     {
         private $status = 200;
+        private $headers = [];
 
-        public function status(int $code) {
-            $this->status = $code;
-            return $this;
-        }
-
-        public function send() {
-           http_response_code(400);
-           echo "Bad Request";
-        }
-
-        public function toJSON($data = [])
+        public function add_header($key,$content)
         {
-            http_response_code($this->status);
+            $this->headers[$key]= $content;
+        }
+
+        public function send($status_code, $message) {
+            header('HTTP/1.1 ' . $status_code . " " . $message);
+            foreach($this->headers as $header)
+            {
+                header('HTTP/1.1 ' . $header['key'] . " " . $header['content']);
+            }
+        }
+
+        public function sendJSON($data = [])
+        {
+            http_response_code(200);
             header('Content-Type: application/json');
             echo json_encode($data);
         }

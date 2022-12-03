@@ -26,6 +26,16 @@ class AlbumArt
         return $this->art_path;
     }
 
+    public function encodeImage(): ?string
+    {
+        if (!is_null($this->art_path))
+        {
+            $art_data = file_get_contents($this->art_path);
+            return 'data:image/jpeg;base64,' . base64_encode($art_data);
+        }
+        return null;
+    }
+
     private function find_last_id()
     {
         $sql = 'SELECT art_id FROM AlbumArt ORDER BY art_id DESC LIMIT 1;';
@@ -38,6 +48,11 @@ class AlbumArt
         $sql = 'SELECT path FROM AlbumArt WHERE art_id = ?';
         $stmt = $this->db_connection->run($sql,[$this->art_id]);
         $results = $stmt->fetch();
-        $this->art_path = $results['art_path'];
+        if ($results !== false) {
+//            var_dump($results['path']);
+            $this->art_path = $results['path'];
+        }
     }
+
+
 }
