@@ -28,7 +28,7 @@ class AlbumController
             $album_json = [
                 'album_name' => $album->getAlbumName(),
                 'artist' => $artist->getArtistName(),
-                'art_data' => $art->encodeImage(),
+                'art_link' => $art->encodeImage(),
                 'genre' => $base_genre->getGenreName(),
                 'subgenre' => $sub_genre->getGenreName(),
                 'release_date' => $release_date

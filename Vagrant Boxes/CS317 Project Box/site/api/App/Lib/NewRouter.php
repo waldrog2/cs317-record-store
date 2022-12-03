@@ -46,22 +46,29 @@ class NewRouter
 
         self::$found_path_match = false; // set path found to false
         self::$found_route_match = false; // set route found to false
-
+//    var_dump(self::$route_list);
         foreach(self::$route_list as $route) //process each registered route looking for a match
         {
-            $route['route_expression'] = rtrim($route['route_expression'],'/');
+            $temp_expression = rtrim($route['route_expression'],'/');
+            $search_expression = "";
+//            var_dump($base_path);
             if ($base_path != '' && $base_path != '/')
             {
-                $route['route_expression'] = '(' . $base_path . ')' . $route['route_expression'];
-
+                $search_expression = '#^(' . $base_path . ')' . $temp_expression . "$#";
+//                var_dump($search_expression);
+            }
+            else
+            {
+                $search_expression = '#^' . $route['route_expression'] . '$#';
             }
             //preg_match has the odd property of
             //permitting almost any character to mark the start and end of regex, here # is used to avoid
             // matching with the / in the url.
-            $route['route_expression'] = '#^' . $route['route_expression'] . '$#';
 
+//            var_dump($url_path);
+//            var_dump($search_expression);
 
-            if (preg_match($route['route_expression'],$url_path,$matches)) //check if the route regex matches the URL
+            if (preg_match($search_expression,$url_path,$matches)) //check if the route regex matches the URL
             {
                 self::$found_path_match = true; //if so, a path is found. Now the method must be verified
 
@@ -79,7 +86,13 @@ class NewRouter
                     if ($route['method'] === 'GET')
                     {
 //                        var_dump($url["query"]);
-                        call_user_func_array($route['controller'],[$matches,$url["query"]]);
+                        if (array_key_exists("query",$url)) {
+                            call_user_func_array($route['controller'], [$matches, $url["query"]]);
+                        }
+                        else
+                        {
+                            call_user_func($route['controller']);
+                        }
                     }
                     else {
                         call_user_func_array($route['controller'], $matches); // call the route match
@@ -87,6 +100,10 @@ class NewRouter
                     break;// stop processing additional routes
 
                 }
+            }
+            else
+            {
+//                var_dump($matches);
             }
 
             if (!self::$found_route_match) //handle route not matching
@@ -104,6 +121,8 @@ class NewRouter
                 }
                 else //the path wasn't found
                 {
+//                    var_dump($url_path);
+//                    var_dump($route['route_expression']);
                  if (self::$path_not_found_handler) //if a hadler is registered, call it
                  {
                     call_user_func_array(self::$path_not_found_handler, [$url_path]);

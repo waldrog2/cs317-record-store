@@ -1,4 +1,4 @@
-export const albumData = [
+export const albumData =
   {
     featured_album: {
       title: "The Pinkprint",
@@ -58,7 +58,6 @@ export const albumData = [
         art_data: "data:image/jpeg;base64,",
       },
     ],
-  },
-];
+  };
 
 export default albumData;

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Lib\DB;
+use App\Lib\ResizedImage;
 
 class AlbumArt
 {
@@ -26,11 +27,18 @@ class AlbumArt
         return $this->art_path;
     }
 
+    public function getArtLink()
+    {
+        $info = pathinfo($this->art_path);
+        return "http://localhost:8044/album_art/". $info['filename'] . ".jpg";
+    }
+
     public function encodeImage(): ?string
     {
         if (!is_null($this->art_path))
         {
-            $art_data = file_get_contents($this->art_path);
+            $resized_image = new ResizedImage($this->art_path,160,160);
+            $art_data = $resized_image->getAsBase64();
             return 'data:image/jpeg;base64,' . base64_encode($art_data);
         }
         return null;
@@ -45,7 +53,8 @@ class AlbumArt
 
     private function load_art()
     {
-        $sql = 'SELECT path FROM AlbumArt WHERE art_id = ?';
+//        $sql = 'SELECT path FROM AlbumArt WHERE art_id = ?';
+        $sql = 'CALL get_art_model(?)';
         $stmt = $this->db_connection->run($sql,[$this->art_id]);
         $results = $stmt->fetch();
         if ($results !== false) {

@@ -19,8 +19,8 @@ use App\Lib\Response;
     },'GET');
 
     NewRouter::add('/album/([0-9]*)', "\App\Controller\AlbumController::getAlbumInfo",'GET');
-    NewRouter::add('/search/?.*',"\App\Controller\SearchController::search",'GET');
-    NewRouter::add('/gridpage?.*',"\App\Controller\GridController::getGridPage",'GET');
+    NewRouter::add('/search?.*',"\App\Controller\SearchController::search",'GET');
+    NewRouter::add('/gridpage',"\App\Controller\GridController::getGridPage",'GET');
     NewRouter::add('/homepage',"\App\Controller\HomeController::getHomepage",'GET');
 
 NewRouter::process_route('/api');

@@ -1,14 +1,29 @@
-import "./header-styles/home-page-header.css";
-import "./home-page-content/home-page.css";
-import "./home-page-content/home-page-content.css";
+import "./css/home-page-header.css";
+import "./css/home-page.css";
+import "./css/home-page-content.css";
 import StaticPage from "./static";
 import Album from "./album-grid";
-import albumData from "./data.js";
+import React,{useState,useEffect} from 'react';
+// import albumData from "./data.js";
 
 function App() {
-  const albums = albumData.map((item) => {
-    return <Album key={item.id} item={item} />;
+    const [albumList,updateAlbumList] = useState([]);
+    useEffect(function effectFunction() {
+        async function fetchGridPage()
+        {
+            const response = await fetch('http://localhost:8044/api/gridpage');
+            const json = await response.json();
+            updateAlbumList(json.entries);
+        }
+        fetchGridPage();
+    },[]);
+    // console.log(albumData);
+    // console.log(albumData);
+
+  const albums = albumList.map((item) => {
+      return <Album key={item.title} item={item}/>;
   });
+
   return (
     <div className="App">
       <StaticPage />

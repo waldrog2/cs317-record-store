@@ -9,7 +9,6 @@ class Artist
 
     private $artist_id;
     private $artist_name;
-    private $genre_name;
     private $db_connection;
 
     public function __construct($id)
@@ -28,14 +27,6 @@ class Artist
         return $this->artist_name;
     }
 
-    public static function search($query,$criteria)
-    {
-        $sql = "SELECT * FROM Artist MATCH(copy) AGAINST (?)";
-    }
-    public function getGenreName()
-    {
-        return $this->genre_name;
-    }
 
     private function find_last_id()
     {
@@ -46,11 +37,11 @@ class Artist
 
     private function load_artist()
     {
-        $sql = 'SELECT artist_name FROM Artist  WHERE artist_id = ?';
+//        $sql = 'SELECT artist_name FROM Artist  WHERE artist_id = ?';
+        $sql = 'CALL get_artist_model(?)';
         $stmt = $this->db_connection->run($sql,[$this->artist_id]);
         $results = $stmt->fetch();
         $this->artist_name = $results['artist_name'];
-        $this->genre_name = $results['genre_name'];
     }
 
 }

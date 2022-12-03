@@ -3,3 +3,4 @@ album_art
 *.jpg
 vendor
 .cache
+.yarn
