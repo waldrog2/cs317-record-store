@@ -30,7 +30,7 @@ class AlbumArt
     public function getArtLink()
     {
         $info = pathinfo($this->art_path);
-        return "http://localhost:8044/album_art/". $info['filename'] . ".jpg";
+        return "http://localhost:8044/album_art/". urlencode($info['filename'] . ".jpg");
     }
 
     public function encodeImage(): ?string

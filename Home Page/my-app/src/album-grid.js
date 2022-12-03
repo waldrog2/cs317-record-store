@@ -22,7 +22,7 @@ export default function Album(props) {
           <div className="album-info">
             <p className="album-title">{props.item.title}</p>
             <p className="album-artist">{props.item.artist}</p>
-            <p className="album-date">July 21, 2017</p>
+            <p className="album-date">{props.item.release_date}</p>
           </div>
         </div>
       </div>
