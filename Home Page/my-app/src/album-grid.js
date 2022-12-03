@@ -14,7 +14,7 @@ export default function Album(props) {
         </div>
         <div className="album-info-grid">
           <div className="icon-picture">
-              <a href={props.item.album_full_data_link}>
+              <a href={props.item.album_full_link}>
             <img className="album-cover" src={props.item.art_link} alt="Album Art" />
               </a>
           </div>

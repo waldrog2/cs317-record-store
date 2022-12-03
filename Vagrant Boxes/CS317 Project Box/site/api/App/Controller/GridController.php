@@ -45,6 +45,7 @@
                     $formatted_timestamp = date("F j, Y",$timestamp);
                     $grid_row_data['entries'][] = [
                         'art_link' => $album_art->getArtLink(),
+                        'album_full_link' => '/album/' . $album_id,
                         'album_full_data_link' => '/api/album/' . $album_id,
                         'title' => $album->getAlbumName(),
                         'artist' => $artist->getArtistName(),
