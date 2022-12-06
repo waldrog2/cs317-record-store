@@ -1,0 +1,38 @@
+body {
+  font-family: "Raleway", sans-serif;
+  background-color: rgb(255, 243, 221);
+}
+
+.album-page {
+  display: flex;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.album-page-image {
+  width: 500px;
+  margin-right: 10px;
+}
+
+.album-page-cover {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.album-page-title {
+  margin: 0;
+  font-weight: bold;
+  font-size: 50px;
+  padding: 0;
+  color: #8a4fff;
+}
+
+.album-page-artist {
+  color: #1c77c3;
+  font-size: 20px;
+}
+
+.album-page-date {
+  font-size: 10px;
+  color: #1c77c3;
+}/*# sourceMappingURL=album-page.css.map */

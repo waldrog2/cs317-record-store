@@ -1,0 +1,52 @@
+$white: #ffffffff;
+$alice-blue: #e5ecf4ff;
+$lavender-blue: #c3bef7ff;
+$medium-slate-blue: #8a4fffff;
+$french-blue: #1c77c3ff;
+
+$blanched-almond: rgb(255, 243, 221);
+$mellow-apricot: #f5c181ff;
+$persian-green: #00a79dff;
+$pine-green: #007065ff;
+$smoky-black: #0f0e0eff;
+
+$welcome-image-width: clamp(300px, 100%, 100%);
+
+body {
+  font-family: "Raleway", sans-serif;
+  background-color: $blanched-almond;
+}
+
+.album-page {
+  display: flex;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.album-page-image {
+  width: 500px;
+  margin-right: 10px;
+}
+
+.album-page-cover {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.album-page-title {
+  margin: 0;
+  font-weight: bold;
+  font-size: 50px;
+  padding: 0;
+  color: $medium-slate-blue;
+}
+
+.album-page-artist {
+  color: $french-blue;
+  font-size: 20px;
+}
+
+.album-page-date {
+  font-size: 10px;
+  color: $french-blue;
+}

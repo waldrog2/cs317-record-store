@@ -1,7 +1,5 @@
-import "./css/home-page-header.css";
 import "./css/home-page.css";
 import "./css/home-page-content.css";
-
 import logo from "./images/logo.png";
 import shoppingBag from "./images/shopping_bag.svg";
 // import flipping from "./images/flipping.jpg";
@@ -9,19 +7,17 @@ import shoppingBag from "./images/shopping_bag.svg";
 // import flipping2 from "./images/flipping2.jpg";
 // import davidBowie from "./images/davidBowie.jpg";
 
-import React,{useState,useEffect} from 'react';
+import React, { useState, useEffect } from "react";
 function StaticPage() {
-  const [featuredAlbum,updateFeaturedAlbum] = useState([]);
+  const [featuredAlbum, updateFeaturedAlbum] = useState([]);
   useEffect(function effectFunction() {
-    async function fetchHomepage()
-    {
-      const response = await fetch('http://localhost:8044/api/homepage');
+    async function fetchHomepage() {
+      const response = await fetch("http://localhost:8044/api/homepage");
       const json = await response.json();
       updateFeaturedAlbum(json.featured_album);
     }
     fetchHomepage();
-  },[]);
-
+  }, []);
 
   return (
     <div className="App">
@@ -38,14 +34,13 @@ function StaticPage() {
         <div className="right-section">
           <button className="shopping-bag">
             <img
-                className="shopping-bag-icon"
+              className="shopping-bag-icon"
               src={shoppingBag}
               alt="shopping-bag"
             />
           </button>
         </div>
       </nav>
-
       <div className="home-page-content">
         <div className="welcome-message">
           <div className="welcome-images">

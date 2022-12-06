@@ -64,6 +64,14 @@ body {
   width: 0;
 }
 
+.search-bar::-moz-placeholder {
+  font-size: 15px;
+}
+
+.search-bar:-ms-input-placeholder {
+  font-size: 15px;
+}
+
 .search-bar::placeholder {
   font-size: 15px;
 }
@@ -90,6 +98,4 @@ body {
 
 .shopping-bag:hover {
   background-color: rgb(255, 243, 221);
-}
-
-/*# sourceMappingURL=home-page-header.css.map */
+}/*# sourceMappingURL=home-page-header.css.map */
