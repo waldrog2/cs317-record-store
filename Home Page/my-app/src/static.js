@@ -9,7 +9,20 @@ import shoppingBag from "./images/shopping_bag.svg";
 // import flipping2 from "./images/flipping2.jpg";
 // import davidBowie from "./images/davidBowie.jpg";
 
+import React,{useState,useEffect} from 'react';
 function StaticPage() {
+  const [featuredAlbum,updateFeaturedAlbum] = useState([]);
+  useEffect(function effectFunction() {
+    async function fetchHomepage()
+    {
+      const response = await fetch('http://localhost:8044/api/homepage');
+      const json = await response.json();
+      updateFeaturedAlbum(json.featured_album);
+    }
+    fetchHomepage();
+  },[]);
+
+
   return (
     <div className="App">
       <nav className="header">
@@ -38,7 +51,7 @@ function StaticPage() {
           <div className="welcome-images">
             {/*<img*/}
             {/*  class="welcome-image-one"*/}
-            {/*  src={homePageRecord}*/}
+            {/*  // src={featuredAlbum.art_link}*/}
             {/*  alt="imageOne"*/}
             {/*/>*/}
             {/*<img class="welcome-image-two" src={flipping2} alt="imageTwo" />*/}
@@ -48,21 +61,21 @@ function StaticPage() {
           <p className="come-in">come on in</p>
         </div>
 
-        <p className="topPick">TOP PICK</p>
+        <h2 className="topPick">FEATURED ALBUM</h2>
 
         <div className="top-pick-container">
           <div className="top-pick-album">
-            {/*<img src={davidBowie} alt="davidBowie" />*/}
+            <img src={featuredAlbum.art_link} alt="albumArt" />
           </div>
 
           <div className="top-pick-info">
             <div>
               <u>
-                <p className="album-title">Heroes</p>
+                <p className="album-title">{featuredAlbum.title}</p>
               </u>
             </div>
             <div>
-              <p className="artist">David Bowie</p>
+              <p className="artist">{featuredAlbum.artist}</p>
             </div>
           </div>
         </div>

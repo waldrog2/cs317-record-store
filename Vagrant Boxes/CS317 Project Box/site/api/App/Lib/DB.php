@@ -7,45 +7,40 @@ use PDOException;
 
 class DB {
 
-    public $pdo;
+    private static $db_instance = null;
+    private PDO $pdo_instance;
 
-    private $db_host;
-    private $db_user;
-    private $db_pass;
-    private $db_database;
-    private $db_charset;
-    private $db_options;
+    private function __construct() {
 
-    public function __construct()
-    {
-        $this->db_host = Config::get_config_option('DB_HOST','');
-        $this->db_user = Config::get_config_option('DB_USER','');
-        $this->db_pass = Config::get_config_option('DB_PASSWD','');
-        $this->db_database = Config::get_config_option('DB_DATABASE','');
-        $this->db_charset = Config::get_config_option('DB_CHARSET','');
-        $this->db_options = Config::get_config_option('DB_OPTIONS',[]);
-
-        $dsn = "mysql:host=".$this->db_host.";dbname=".$this->db_database .";charset=".$this->db_charset;
-        try {
-            $this->pdo = new PDO($dsn, $this->db_user, $this->db_pass, $this->db_options);
-        }
-        catch (PDOException $e)
-        {
-            throw new PDOException($e->getMessage(), $e->getCode());
-        }
+            $db_host = Config::get_config_option('DB_HOST','');
+            $db_user = Config::get_config_option('DB_USER','');
+            $db_pass = Config::get_config_option('DB_PASSWD','');
+            $db_database = Config::get_config_option('DB_DATABASE','');
+            $db_charset = Config::get_config_option('DB_CHARSET','');
+            $db_options = Config::get_config_option('DB_OPTIONS',[]);
+            $dsn = "mysql:host=" . $db_host . ";dbname=" . $db_database . ";charset=" . $db_charset;
+            try {
+                $this->pdo_instance = new PDO($dsn, $db_user, $db_pass, $db_options);
+            } catch (PDOException $e) {
+                throw new PDOException($e->getMessage(), $e->getCode());
+            }
     }
 
-    public function __destruct()
+    public static function getInstance()
     {
-        $this->pdo = null;
+        if (is_null(self::$db_instance)) {
+            self::$db_instance = new DB();
+        }
+        return self::$db_instance;
     }
+
     public function run($sql,$args = null)
     {
 //        echo $sql;
         if (!$args) {
-            return $this->pdo->query($sql);
+            return $this->pdo_instance->query($sql);
         }
-        $stmt = $this->pdo->prepare($sql);
+        $stmt = $this->pdo_instance->prepare($sql);
         $stmt->execute($args);
         return $stmt;
     }
@@ -55,7 +50,7 @@ class DB {
         if (!$args) {
             $this->run($sql);
         }
-        $stmt = $this->pdo->prepare($sql);
+        $stmt = $this->pdo_instance->prepare($sql);
         foreach ($args as $param => $settings) {
             $stmt->bindParam($param,$settings['value'],$settings['type']);
          }

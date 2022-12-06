@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Lib\Request;
 use App\Lib\Response;
 use App\Models\Album;
 use App\Models\AlbumArt;
@@ -11,13 +12,20 @@ use App\Models\Genre;
 class AlbumController
 {
 
-    public static function getAlbumInfo($album_data,$query_params)
+    public static function getAlbumInfo($sub_path,$query_url_fragment)
     {
-        $album = new Album(intval($album_data[0]));
+        $req = new Request();
+        $parameters = $req->parseQueryString($query_url_fragment);
+        if (!array_key_exists('id',$parameters))
+        {
+            $resp = new Response();
+            $resp->send(400,"Bad Request");
+        }
+        $album = new Album(intval($parameters['id']));
         if (is_null($album->getAlbumName()))
         {
             $res = new Response();
-            $res->send(404,"Not Found");
+            $res->send(400,"Bad Request");
         }
         else {
             $artist = new Artist($album->getArtistID());
@@ -28,7 +36,7 @@ class AlbumController
             $album_json = [
                 'album_name' => $album->getAlbumName(),
                 'artist' => $artist->getArtistName(),
-                'art_link' => $art->encodeImage(),
+                'art_link' => $art->getArtLink(),
                 'genre' => $base_genre->getGenreName(),
                 'subgenre' => $sub_genre->getGenreName(),
                 'release_date' => $release_date

@@ -23,7 +23,7 @@
             $homepage_data['featured_album'] = [
                 'title' => $featuredItem->getAlbumName(),
                 'artist' => $artist->getArtistName(),
-                'art_data' => $album_art->encodeImage()
+                'art_link' => $album_art->getArtLink()
             ];
             $newest_albums = Album::getNewestAlbums(10);
             foreach($newest_albums as $new_album) {
@@ -33,7 +33,7 @@
                 $homepage_data['new_releases'][] = [
                     'title' => $new_album->getAlbumName(),
                     'artist' => $artist->getArtistName(),
-                    'art_data' => $album_art->encodeImage(),
+                    'art_link' => $album_art->getArtLink(),
                 ];
             }
             $resp = new Response();

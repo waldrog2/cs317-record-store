@@ -18,7 +18,7 @@ class Album
 
     public function __construct($id)
     {
-        $this->db_connection = new DB();
+        $this->db_connection = DB::getInstance();
         $this->album_id = $id;
         if (is_null($id))
         {
@@ -59,16 +59,10 @@ class Album
 
     public static function search($album_name)
     {
-        $db_connection = new DB();
+        $db_connection = DB::getInstance();
         $distances = [];
-        $sql = "SELECT
-                    album_id AS id,
-                    album_name AS search_result,
-                    MATCH(album_name) AGAINST(:name) AS relevance
-                    FROM Album
-                    WHERE MATCH(album_name) AGAINST(:name2)
-                    ORDER BY relevance DESC LIMIT 20";
-        $stmt = $db_connection->run($sql,[':name' => $album_name,":name2"=>$album_name]);
+        $sql = "CALL album_search(?)";
+        $stmt = $db_connection->run($sql,[$album_name]);
         $top_20_results = $stmt->fetchAll();
 //        var_dump($top_20_results);
         for ($i = 0; $i < sizeof($top_20_results); $i++) {
@@ -84,7 +78,7 @@ class Album
 
     public static function getAlbumCount()
     {
-        $db_connection = new DB();
+        $db_connection = DB::getInstance();
         $sql = 'SELECT COUNT(DISTINCT album_id) AS album_count FROM Album';
         $stmt = $db_connection->run($sql);
         return $stmt->fetch()['album_count'];
@@ -93,7 +87,7 @@ class Album
     public static function getNewestAlbums($count): array
     {
         $new_albums = [];
-        $db_connection = new DB();
+        $db_connection = DB::getInstance();
         $sql = 'SELECT album_id FROM Album GROUP BY artist_id ORDER BY release_date DESC LIMIT ?';
         $stmt = $db_connection->run($sql,[$count]);
 //        var_dump($stmt->fetchAll());
@@ -105,6 +99,49 @@ class Album
         return $new_albums;
     }
 
+    public static function getAll()
+    {
+        $album_dump = [];
+        $sql = 'CALL get_album_dump';
+        $stmt = DB::getInstance()->run($sql);
+        $results = $stmt->fetchAll();
+        if ($results !== false)
+        {
+            foreach ($results as $album_data)
+                $album_dump[] = [
+                    'album_id' => $album_data['album_id'],
+                    'album_name' => $album_data['album_name'],
+                    'artist_name' => $album_data['artist_name'],
+                    'art_path' => $album_data['path'],
+                    'release_date' => $album_data['release_date'],
+
+                ];
+            return $album_dump;
+        }
+        return [];
+    }
+
+    public static function getAllOfGenre($genre_id)
+    {
+        $album_dump = [];
+        $sql = 'CALL get_album_list_by_genre(?)';
+        $stmt = DB::getInstance()->run($sql,[$genre_id]);
+        $results = $stmt->fetchAll();
+        if ($results !== false)
+        {
+            foreach ($results as $album_data)
+                $album_dump[] = [
+                    'album_id' => $album_data['album_id'],
+                    'album_name' => $album_data['album_name'],
+                    'artist_name' => $album_data['artist_name'],
+                    'art_path' => $album_data['path'],
+                    'release_date' => $album_data['release_date'],
+
+                ];
+            return $album_dump;
+        }
+        return [];
+    }
 
     public function getRandom()
     {
@@ -123,7 +160,7 @@ class Album
 
     private function load_album()
     {
-        $sql = 'SELECT album_name,artist_id,genre_id,subgenre_id,art_id,release_date FROM Album WHERE album_id = ?';
+        $sql = 'CALL get_album_model(?)';
 //        echo $this->album_id;
         $stmt = $this->db_connection->run($sql,[$this->album_id]);
         $results = $stmt->fetch();

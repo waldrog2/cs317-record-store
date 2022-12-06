@@ -15,7 +15,7 @@ class AlbumSong
 
     public function __construct($id, $type)
     {
-        $this->db_connection = new DB();
+        $this->db_connection = DB::getInstance();
         if ($type === "album") {
             $this->album_id = $id;
             $this->load_album_track_ids();

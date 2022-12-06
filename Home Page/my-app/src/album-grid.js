@@ -1,5 +1,6 @@
 import "./css/album-style.css";
 import React from "react";
+import {Link} from "react-router-dom";
 // import flowerBoy from "./images/flowerBoy.jpg";
 // import tylerPicture from "./images/tyler.bmp";
 
@@ -14,9 +15,9 @@ export default function Album(props) {
         </div>
         <div className="album-info-grid">
           <div className="icon-picture">
-              <a href={props.item.album_full_link}>
+              <Link to={props.item.album_full_link}>
             <img className="album-cover" src={props.item.art_link} alt="Album Art" />
-              </a>
+              </Link>
           </div>
 
           <div className="album-info">

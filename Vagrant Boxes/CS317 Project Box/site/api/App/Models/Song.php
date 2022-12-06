@@ -15,7 +15,7 @@ class Song
     private $db_connection;
 
     public function __construct($id) {
-        $this->db_connection = new DB();
+        $this->db_connection = DB::getInstance();
         $this->song_id = $id;
         if (is_null($id))
         {
@@ -40,7 +40,7 @@ class Song
 
     public static function search($song_name) {
 //        var_dump($song_name);
-        $db_connection = new DB();
+        $db_connection = DB::getInstance();
         $distances = [];
         $sql = "SELECT
                     song_id AS id,

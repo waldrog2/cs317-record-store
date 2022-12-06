@@ -14,7 +14,7 @@ class Genre {
     private $db_connection;
 
     public function __construct($id = null) {
-        $this->db_connection = new DB();
+        $this->db_connection = DB::getInstance();
         $this->genre_id = $id;
         if (is_null($id))
         {
@@ -43,6 +43,13 @@ class Genre {
     {
         $sql = 'SELECT genre_id FROM Genre ORDER BY genre_id DESC LIMIT 1;';
         $stmt = $this->db_connection->run($sql);
+        return $stmt->fetch()["genre_id"];
+    }
+
+    public static function getIDFromName($id)
+    {
+        $sql = 'SELECT genre_id FROM Genre WHERE genre_name LIKE ?;';
+        $stmt = DB::getInstance()->run($sql,["%$id%"]);
         return $stmt->fetch()["genre_id"];
     }
 

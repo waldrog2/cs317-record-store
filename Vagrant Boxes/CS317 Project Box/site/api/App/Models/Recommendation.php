@@ -13,7 +13,7 @@ class Recommendation
     public function __construct($subgenre_id)
     {
         $this->subgenre_id = $subgenre_id;
-        $this->db_connection = new DB();
+        $this->db_connection = DB::getInstance();
     }
 
     public function getRecommendation($limit = 5)

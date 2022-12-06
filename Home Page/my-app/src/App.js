@@ -4,21 +4,22 @@ import "./css/home-page-content.css";
 import StaticPage from "./static";
 import Album from "./album-grid";
 import React,{useState,useEffect} from 'react';
+import { BrowserRouter, Link, Route, Switch  } from 'react-router-dom';
 // import albumData from "./data.js";
 
 function App() {
     const [albumList,updateAlbumList] = useState([]);
-    useEffect(function effectFunction() {
-        async function fetchGridPage()
-        {
-            const response = await fetch('http://localhost:8044/api/gridpage');
-            const json = await response.json();
-            updateAlbumList(json.entries);
-        }
-        fetchGridPage();
+
+    useEffect(() => {
+            fetch('http://localhost:8044/api/gridpage').then(
+                res => res.json().then(
+                    data => {
+                        updateAlbumList(data.entries)
+                    }
+                )
+            );
     },[]);
-    // console.log(albumData);
-    // console.log(albumData);
+
 
   const albums = albumList.map((item) => {
       return <Album key={item.title} item={item}/>;
@@ -26,8 +27,33 @@ function App() {
 
   return (
     <div className="App">
-      <StaticPage />
-      <section className="album-list">{albums}</section>
+
+        <BrowserRouter>
+            <Switch >
+                <Route exact path="/">
+                    <>
+                        <StaticPage />
+                        <section className="album-list">
+                            {albums}
+                        </section>
+                    </>
+                </Route>
+
+                <Route path="/album/:id">
+                    <p>Album Page</p>
+                </Route>
+
+                <Route path="/search">
+                    <>
+                        <h1>Search Results</h1>
+                        <p>Search Page</p>
+                    </>
+
+                </Route>
+
+            </Switch >
+
+        </BrowserRouter>
     </div>
   );
 }

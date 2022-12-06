@@ -13,7 +13,7 @@ class Format
     public function __construct($id_or_name)
     {
 
-        $this->db_connection = new DB();
+        $this->db_connection = DB::getInstance();
         if (is_int($id_or_name)) {
             $this->format_id = $id_or_name;
             $this->load_format();

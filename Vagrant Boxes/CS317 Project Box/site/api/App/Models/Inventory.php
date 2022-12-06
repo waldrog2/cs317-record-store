@@ -15,7 +15,7 @@ class Inventory
     private $db_connection;
 
     public function __construct($id = null) {
-        $this->db_connection = new DB();
+        $this->db_connection = DB::getInstance();
         $this->item_id = $id;
         if (is_null($id))
         {

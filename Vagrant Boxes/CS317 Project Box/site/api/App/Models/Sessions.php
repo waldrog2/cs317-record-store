@@ -11,7 +11,7 @@ class Sessions
     private $cookie;
 
     public function __construct($id) {
-        $this->db_connection = new DB();
+        $this->db_connection = DB::getInstance();
         $this->cart_id = $id;
         if (is_null($id))
         {

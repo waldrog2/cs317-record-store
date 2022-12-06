@@ -13,7 +13,7 @@ class Artist
 
     public function __construct($id)
     {
-        $this->db_connection = new DB();
+        $this->db_connection = DB::getInstance();
         $this->artist_id = $id;
         if (is_null($id))
         {
