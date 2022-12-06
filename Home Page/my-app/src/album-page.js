@@ -1,5 +1,6 @@
 import React from "react";
 import "./css/album-page.css";
+import "./css/home-page-header.css";
 export default function AlbumPage(props) {
   return (
     <div>

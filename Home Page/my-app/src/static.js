@@ -1,5 +1,6 @@
 import "./css/home-page.css";
 import "./css/home-page-content.css";
+import "./css/home-page-header.css";
 import logo from "./images/logo.png";
 import shoppingBag from "./images/shopping_bag.svg";
 // import flipping from "./images/flipping.jpg";
