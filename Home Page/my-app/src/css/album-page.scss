@@ -17,8 +17,13 @@ body {
   background-color: $blanched-almond;
 }
 
+p {
+  font-family: "Raleway", sans-serif;
+}
+
 .album-page {
   display: flex;
+  flex-direction: column;
   margin-top: 20px;
   margin-left: 20px;
 }
@@ -49,4 +54,9 @@ body {
 .album-page-date {
   font-size: 10px;
   color: $french-blue;
+}
+
+.song-list {
+  display: flex;
+  max-width: 100px;
 }
