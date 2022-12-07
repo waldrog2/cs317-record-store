@@ -9,7 +9,7 @@ p {
 
 .album-page {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   margin-top: 20px;
   margin-left: 20px;
 }
@@ -44,6 +44,6 @@ p {
 
 .song-list {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   max-width: 100px;
 }/*# sourceMappingURL=album-page.css.map */
