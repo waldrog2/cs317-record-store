@@ -1,19 +1,26 @@
-import React from "react";
+import {useParams} from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import TrackList from "./tracklist";
 import "./css/album-page.css";
 import "./css/home-page-header.css";
+import logo from "./images/logo.png";
+import shoppingBag from "./images/shopping_bag.svg";
 export default function AlbumPage(props) {
   const { id } = useParams();
-  const [albumData, updateAlbumData] = useState({});
+  const [albumData, updateAlbumData] = useState({songs:[]});
 
   useEffect(() => {
     fetch("http://localhost:8044/api/album?id=" + id).then((res) =>
       res.json().then((data) => {
+
         updateAlbumData(data);
       })
     );
   }, []);
 
-  const songs = albumList.songs.map((item) => {
+  console.log("Data: " + JSON.stringify(albumData));
+  console.log("Props: " + JSON.stringify(props));
+  const songs = albumData.songs.map((item) => {
     return <TrackList key={item.name} item={item} />;
   });
   return (
@@ -43,14 +50,14 @@ export default function AlbumPage(props) {
           <div className="album-page-image">
             <img
               className="album-page-cover"
-              src={props.item.art_link}
+              src={albumData.art_link}
               alt="Album Art"
             />
           </div>
           <div className="album-page-info">
-            <p className="album-page-title">{props.item.title}</p>
-            <p className="album-page-artist">{props.item.artist}</p>
-            <p className="album--pagedate">{props.item.release_date}</p>
+            <p className="album-page-title">{albumData.album_name}</p>
+            <p className="album-page-artist">{albumData.artist}</p>
+            <p className="album--pagedate">{albumData.release_date}</p>
           </div>
         </div>
 
