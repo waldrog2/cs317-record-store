@@ -5,11 +5,13 @@ import { Link } from "react-router-dom";
 // import tylerPicture from "./images/tyler.bmp";
 
 export default function Album(props) {
-  // console.log("Album Data: " + props.item.title);
+
+
+  console.log("Album Data: " + JSON.stringify(props));
+
   return (
     <div className="div-album">
       <div className="album-cover-row">
-        {/*<img src={flowerBoy} className="album-cover" alt="flowerBoy" />*/}
         <div className="album-cost">$19.99</div>
       </div>
       <div className="album-info-grid">
@@ -22,7 +24,6 @@ export default function Album(props) {
             />
           </Link>
         </div>
-
         <div className="album-info">
           <p className="album-title">{props.item.title}</p>
           <p className="album-artist">{props.item.artist}</p>

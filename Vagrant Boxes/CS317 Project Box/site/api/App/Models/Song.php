@@ -17,6 +17,7 @@ class Song
     public function __construct($id) {
         $this->db_connection = DB::getInstance();
         $this->song_id = $id;
+//        var_dump($id);
         if (is_null($id))
         {
             $this->song_id = $this->find_last_id() + 1;

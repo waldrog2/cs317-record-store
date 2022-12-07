@@ -103,8 +103,8 @@ inventory_sql = "INSERT INTO Inventory (album_id,price,stock) VALUES ({},{},{});
 genre_id = 1
 subgenre_id = 1
 artist_id = 1
-art_id = 1
-album_id = 1
+art_id = 0
+album_id = 0
 song_id = 1
 
 genre_db = {}
@@ -140,6 +140,9 @@ for genre in data_dump["genres"]:
             for album in artist["albums"]:
                 album["name"] = album["name"].replace("\"","\'")
                 if album["name"] not in album_db.keys():
+                    print(f"Incrementing Album ID from {album_id} to {album_id+1}, because new album {album['name']}")
+                    album_id += 1
+                    art_id += 1
                     art_db[album["name"]] = album["art_path"]
                     album_db[album["name"]] = [artist_db[artist["name"]],genre_db[genre["name"]],subgenre_db[subgenre["name"]],art_id,album["release_date"],album_id]
                     for track in album["tracks"]:
@@ -152,13 +155,15 @@ for genre in data_dump["genres"]:
                         search_key = f"{track['name']}||{artist['name']}||{duration}"
                         if search_key not in song_db.keys():
                             song_db[search_key] = song_id
+                            songdb_key = f"{album_id}||{song_db[search_key]}"
+                            albumsong_db[songdb_key] = [1,2]
                             song_id += 1
+                            
                         else:
                             songdb_key = f"{album_id}||{song_db[search_key]}"
                             if songdb_key not in albumsong_db.keys():
                                 albumsong_db[songdb_key] = [1,2]
-                    album_id += 1
-                    art_id += 1
+                    
 
 migration_lines.append(format_sql.format("Vinyl"))
 migration_lines.append(format_sql.format("CD"))      
@@ -186,6 +191,7 @@ for album in album_db.keys():
 
 for album_song in albumsong_db.keys():
     keyparts = album_song.split("||")
+    # print(keyparts)
     migration_lines.append(album_song_sql.format(keyparts[0],keyparts[1],1))
     migration_lines.append(album_song_sql.format(keyparts[0],keyparts[1],2))
     

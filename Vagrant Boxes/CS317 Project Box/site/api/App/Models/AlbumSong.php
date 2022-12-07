@@ -37,12 +37,12 @@ class AlbumSong
 
     private function load_album_track_ids()
     {
-        $sql = 'SELECT song_id,format_id FROM AlbumSong WHERE album_id = ?';
+        $sql = 'SELECT song_id FROM AlbumSong WHERE album_id = ?';
         $stmt = $this->db_connection->run($sql, [$this->album_id]);
         $results = $stmt->fetchAll();
         if ($results !== false) {
             foreach ($results as $result) {
-                $this->song_list[$result['song_id']][] = $result['format_id'];
+                $this->song_list[] = $result['song_id'];
             }
         }
     }
