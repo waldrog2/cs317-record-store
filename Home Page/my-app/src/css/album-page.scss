@@ -31,6 +31,7 @@ p {
 .album-page-image {
   width: 500px;
   margin-right: 10px;
+  display: inline;
 }
 
 .album-page-cover {
@@ -38,6 +39,9 @@ p {
   border-radius: 10px;
 }
 
+.album-page-info {
+  margin-bottom: 30px;
+}
 .album-page-title {
   margin: 0;
   font-weight: bold;
