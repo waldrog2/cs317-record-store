@@ -37,7 +37,7 @@ class AlbumSong
 
     private function load_album_track_ids()
     {
-        $sql = 'SELECT song_id FROM AlbumSong WHERE album_id = ?';
+        $sql = 'SELECT DISTINCT(song_id) FROM AlbumSong WHERE album_id = ?';
         $stmt = $this->db_connection->run($sql, [$this->album_id]);
         $results = $stmt->fetchAll();
         if ($results !== false) {
