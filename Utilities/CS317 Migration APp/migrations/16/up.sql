@@ -49,4 +49,25 @@ CREATE PROCEDURE get_artist_model(IN param1 INT)
  END;
 //
 
+CREATE PROCEDURE  get_album_list_by_genre (IN id INT)
+ BEGIN
+  SELECT
+      album_id,album_name,artist_name,path,release_date
+  FROM Album
+      INNER JOIN AlbumArt ON Album.art_id = AlbumArt.art_id
+     INNER JOIN Artist ON Album.artist_id = Artist.artist_id
+  WHERE genre_id = id;
+ END;
+//
+
+CREATE PROCEDURE  get_album_dump ()
+ BEGIN
+  SELECT
+      album_id,album_name,artist_name,path,release_date
+  FROM Album
+      INNER JOIN AlbumArt ON Album.art_id = AlbumArt.art_id
+     INNER JOIN Artist ON Album.artist_id = Artist.artist_id;
+ END;
+//
+
 DELIMITER ;
