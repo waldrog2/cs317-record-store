@@ -44,5 +44,6 @@ p {
 
 .song-list {
   display: flex;
+  flex-direction: row;
   max-width: 100px;
 }/*# sourceMappingURL=album-page.css.map */

@@ -58,5 +58,6 @@ p {
 
 .song-list {
   display: flex;
+  flex-direction: row;
   max-width: 100px;
 }
